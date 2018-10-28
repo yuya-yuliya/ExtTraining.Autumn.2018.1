@@ -8,7 +8,7 @@ namespace StringExtension
 {
     public static class Parser
     {
-        public static int ToDecimal(this string str, int @base)
+        public static int ToDecimal(this string source, int @base)
         {
             throw new NotImplementedException();
         }
