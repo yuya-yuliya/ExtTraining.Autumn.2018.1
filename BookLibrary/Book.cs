@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookExtention
+namespace BookLibrary
 {
-    public class Class1
+    public class Book
     {
+        //TODO
     }
 }
