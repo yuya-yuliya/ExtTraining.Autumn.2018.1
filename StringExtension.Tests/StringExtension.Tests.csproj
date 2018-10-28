@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{20EE475D-2462-4B6A-8359-239C0600A70D}</ProjectGuid>
+    <ProjectGuid>{142D4E17-210C-4935-B64E-3C15EF468604}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BookLibrary.Tests</RootNamespace>
-    <AssemblyName>BookLibrary.Tests</AssemblyName>
+    <RootNamespace>StringExtension.Tests</RootNamespace>
+    <AssemblyName>StringExtension.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Book.Tests.cs" />
+    <Compile Include="ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BookLibrary\BookLibrary.csproj">
-      <Project>{2a12c994-924f-43de-a680-973ffeb02062}</Project>
-      <Name>BookLibrary</Name>
+    <ProjectReference Include="..\StringExtension\StringExtension.csproj">
+      <Project>{684d9ecc-e489-458c-a9da-5cbd7546f403}</Project>
+      <Name>StringExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
