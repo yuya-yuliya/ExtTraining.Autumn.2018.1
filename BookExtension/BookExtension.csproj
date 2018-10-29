@@ -43,6 +43,14 @@
   <ItemGroup>
     <Compile Include="BookFormatExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopFormatFabric.cs" />
+    <Compile Include="ShopFormatter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLibrary\BookLibrary.csproj">
+      <Project>{2a12c994-924f-43de-a680-973ffeb02062}</Project>
+      <Name>BookLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
