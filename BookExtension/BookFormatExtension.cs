@@ -5,7 +5,7 @@ using BookLibrary;
 namespace BookExtension
 {
     /// <summary>
-    /// Provides extension method for Book class to get formatting string in shop format
+    /// Provides format method for Book class to get formatting string in shop format not availiable in standart ToString
     /// </summary>
     public class BookFormatExtension : ICustomFormatter, IFormatProvider
     {
