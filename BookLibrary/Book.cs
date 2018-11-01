@@ -1,9 +1,9 @@
-﻿using BookLibrary.Fabric;
-using System;
+﻿using System;
+using System.Globalization;
 
 namespace BookLibrary
 {
-    public class Book
+    public class Book : IFormattable
     { 
         private int year;
         private int pages;
@@ -62,24 +62,42 @@ namespace BookLibrary
             }
         }
 
-        public string ToFullFormatString()
+        public override string ToString()
         {
-            return new FullFormatFabric().CreateFormatter().GetFormatString(this);
+            return ToString("G", CultureInfo.CurrentCulture);
         }
 
-        public string ToCoverFormatString()
+        public string ToString(string format)
         {
-            return new CoverFormatFabric().CreateFormatter().GetFormatString(this);
+            return ToString(format, CultureInfo.CurrentCulture);
         }
 
-        public string ToPublishingFormatString()
+        public string ToString(string format, IFormatProvider formatProvider)
         {
-            return new PublishingFormatFabric().CreateFormatter().GetFormatString(this);
-        }
+            if (string.IsNullOrEmpty(format))
+            {
+                format = "G";
+            }
 
-        public string ToSimpleFormatString()
-        {
-            return new SimpleFormatFabric().CreateFormatter().GetFormatString(this);
+            if (formatProvider == null)
+            {
+                formatProvider = CultureInfo.CurrentCulture;
+            }
+
+            switch (format.ToUpperInvariant())
+            {
+                case "G":
+                case "F":
+                    return $"Book record: {Title}, {Author}, {Edition.ToString(formatProvider)}, {Year}, {PublishingHous}, {Pages}, {Price.ToString("C0", formatProvider)}";
+                case "C":
+                    return $"Book record: {Title}, {Author}, {Edition.ToString(formatProvider)}";
+                case "P":
+                    return $"Book record: {Title}, {Edition.ToString(formatProvider)}, {Year}, {PublishingHous}";
+                case "S":
+                    return $"Book record: {Title}, {Author}, {Year}";
+                default:
+                    throw new FormatException($"The {format} format string is not supported.");
+            }
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using BookLibrary;
 
 namespace BookExtension.Tests
@@ -22,12 +17,12 @@ namespace BookExtension.Tests
             Price = 40
         };
 
-        [Test]
-        public void ToShopFormatString_NullBook_ThrowsArgumentNullException()
-            => Assert.Throws<ArgumentNullException>(() => ((Book)null).ToShopFormatString());
-
         [TestCase(ExpectedResult = "Book record: C# in Depth, Jon Skeet, 2019, 900, 40 ₽")]
         public string ToShopFormatString_ValidResult() =>
-            book.ToShopFormatString();
+            string.Format(new BookFormatExtension(), "{0:SH}", book);
+
+        [TestCase(ExpectedResult = "Book record: C# in Depth, Jon Skeet, 2019")]
+        public string ToFormatString_OldFormat_ValidResult() =>
+            string.Format(new BookFormatExtension(), "{0:S}", book);
     }
 }
